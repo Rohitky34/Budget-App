@@ -24,6 +24,11 @@ function Expenses(props) {
         amount={props.expenses[3].amount}
         date={props.expenses[3].date}
       ></ExpenseItem>
+      <ExpenseItem
+        title={props.expenses[0].title}
+        amount={props.expenses[0].amount}
+        date={props.expenses[0].date}
+      ></ExpenseItem>
     </div>
   );
 }
