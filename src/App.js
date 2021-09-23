@@ -29,7 +29,6 @@ function App() {
     },
   ];
   const AddExpensehandler = (expense) => {
-    console.log("nmew js");
     console.log(expense);
   };
 
