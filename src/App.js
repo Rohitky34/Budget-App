@@ -1,9 +1,9 @@
-import react from "react";
+import React,{useState} from "react";
 import Expenses from "./components/expenses/Expenses";
 import AddExpense from "./components/AddExpenses/AddExpense";
 import ExpensesFilter from "./components/AddExpenses/ExpensesFilter";
-function App() {
-  const expenses = [
+
+  const DUMMY_EXPENSES = [
     {
       id: "e1",
       title: "Toilet Paper",
@@ -29,14 +29,19 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+function App() {
+  const [expense, setExpense] = useState(DUMMY_EXPENSES);
+
   const AddExpensehandler = (expense) => {
-    console.log(expense);
+    setExpense(prevExpense => {
+      return [expense, ...prevExpense];
+    });
   };
 
   return (
     <div>
       <AddExpense onAddExpense={AddExpensehandler} />
-      <Expenses expenses={expenses}></Expenses>
+      <Expenses expenses={expense}></Expenses>
     </div>
   );
 }
